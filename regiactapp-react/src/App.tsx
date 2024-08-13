@@ -75,7 +75,12 @@ function App() {
           <tr>
             <th>Actividad</th>
             {[...etapas].map((etapa) => (
-              <th key={etapa}>{etapa}</th>
+              <th key={etapa}>{etapa == 0 ? "General" : 
+                etapa == 1 ? "Planificación" : 
+                etapa == 2 ? "Ejecución" :
+                etapa == 3 ? "Comunicación" :
+                etapa == 4 ? "Revisión de calidad QA" :
+                etapa == 5 ? "Supervisión" : etapa}</th>
             ))}
           </tr>
         </thead>
