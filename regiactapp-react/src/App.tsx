@@ -8,6 +8,8 @@ function App() {
   const [startDate, setStartDate] = useState("2024-01-01"); // Default start date
   const [endDate, setEndDate] = useState("2024-12-31"); // Default end date
   const [data, setData] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(""); // State for selected user
+
 
   useEffect(() => {
     const fetchActividades = async () => {
@@ -25,8 +27,10 @@ function App() {
   const createSummary = (data) => {
     const summary = {};
 
-    const filteredData = data.filter(item => 
-      item.fechaIni >= startDate && item.fechaIni <= endDate
+    const filteredData = data.filter(item =>
+      item.fechaIni >= startDate 
+      && item.fechaIni <= endDate
+      && (selectedUser ? item.userEmail === selectedUser : true)
     );
     // Summing hours by nombre and categoria
     filteredData.forEach(({ actividad, etapa, horas }) => {
@@ -50,6 +54,9 @@ function App() {
       etapas.add(etapa);
     }
   }
+
+  const uniqueUsers = [...new Set(data.map(item => item.userEmail))];
+
  
   return (
     <div>
@@ -69,6 +76,15 @@ function App() {
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
         />
+      </label>
+      <label>
+        Select User:
+        <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+          <option value="">All</option>
+          {uniqueUsers.map((user) => (
+            <option key={user} value={user}>{user}</option>
+          ))}
+        </select>
       </label>
       <table border="1">
         <thead>

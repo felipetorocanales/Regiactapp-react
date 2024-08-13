@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDDlCVJr4dXfL_kldpAQw_Y5tJgk4Fk3Ng",
-  authDomain: "regiactapp-48209.firebaseapp.com",
-  projectId: "regiactapp-48209",
-  storageBucket: "regiactapp-48209.appspot.com",
-  messagingSenderId: "452830201142",
-  appId: "1:452830201142:web:af0d9c2aef1fa043979f97"
+  apiKey: "AIzaSyD2h601M9xXW2cxWpQTFHSN430eGWc9btA",
+  authDomain: "regiactapp.firebaseapp.com",
+  projectId: "regiactapp",
+  storageBucket: "regiactapp.appspot.com",
+  messagingSenderId: "737339124671",
+  appId: "1:737339124671:web:9c3d27506b32eb12e78f0a"
 };
 
 // Initialize Firebase
